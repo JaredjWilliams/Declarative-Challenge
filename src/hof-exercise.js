@@ -40,13 +40,13 @@ const selectTaxable = (items) => items.filter(item => item.taxable)
 // applyTax: (prices: [number], tax: number) -> [number]
 const applyTax = (prices, tax) => prices.map(price => price * tax);
 
-// baseSum: TODO - Type Signature
+// baseSum: (items: [{price: number}]) -> { number }
 const baseSum = items => sum(prices(items));
 
-// taxSum: TODO - Type Signature
+// taxSum: (items : [{price: number}], tax : number) -> { number } 
 const taxSum = (items, tax) => sum(applyTax(prices(selectTaxable(items)), tax));
 
-// calculateTotalDeclarative: TODO - Type Signature
+// calculateTotalDeclarative: (items : [{price: number}], tax : number) -> { number }
 const calculateTotalDeclarative = (items, tax) =>
   baseSum(items) + taxSum(items, Math.abs(tax));
 
